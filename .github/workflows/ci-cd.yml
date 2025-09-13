@@ -26,10 +26,21 @@ jobs:
   deploy:
     needs: test
     runs-on: ubuntu-latest
+    environment: production
     steps:
     - uses: actions/checkout@v3
-    - name: Deploy to CloudStudio
+    - name: Configure CloudStudio CLI
       run: |
-        echo "Deployment logic to CloudStudio would go here"
-        # 实际部署需要配置CloudStudio的API密钥
-        # 和具体的部署脚本
+        pip install cloudstudio-cli
+    - name: Deploy to CloudStudio
+      env:
+        API_KEY: ${{ secrets.CLOUDSTUDIO_API_KEY }}
+      run: |
+        echo "Deploying to CloudStudio..."
+        cloudstudio deploy --api-key $API_KEY --env production
+        echo "Deployment completed!"
+    - name: Notify Slack
+      if: always()
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
