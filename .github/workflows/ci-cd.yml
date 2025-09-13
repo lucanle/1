@@ -23,24 +23,48 @@ jobs:
       run: |
         python -m pytest
 
-  deploy:
+jobs:
+  # ...测试阶段保持不变...
+
+  deploy-dev:
     needs: test
     runs-on: ubuntu-latest
-    environment: production
+    environment: dev
     steps:
     - uses: actions/checkout@v3
-    - name: Configure CloudStudio CLI
-      run: |
-        pip install cloudstudio-cli
-    - name: Deploy to CloudStudio
+    - name: Deploy to Dev
       env:
-        API_KEY: ${{ secrets.CLOUDSTUDIO_API_KEY }}
+        API_KEY: ${{ secrets.DEV_API_KEY }}
       run: |
-        echo "Deploying to CloudStudio..."
-        cloudstudio deploy --api-key $API_KEY --env production
-        echo "Deployment completed!"
-    - name: Notify Slack
-      if: always()
-      uses: rtCamp/action-slack-notify@v2
+        cloudstudio deploy --api-key $API_KEY --env dev
+
+  deploy-stage:
+    needs: deploy-dev
+    runs-on: ubuntu-latest
+    environment: stage
+    steps:
+    - uses: actions/checkout@v3
+    - name: Deploy to Stage
       env:
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        API_KEY: ${{ secrets.STAGE_API_KEY }}
+      run: |
+        cloudstudio deploy --api-key $API_KEY --env stage
+
+  deploy-prod:
+    needs: deploy-stage
+    runs-on: ubuntu-latest
+    environment: 
+      name: production
+      url: https://cloudstudio.com/your-project
+    steps:
+    - uses: actions/checkout@v3
+    - name: Approve Production Deploy
+      uses: trstringer/manual-approval@v1
+      with:
+        secret: ${{ github.token }}
+        approvers: "your-github-username"
+    - name: Deploy to Prod
+      env:
+        API_KEY: ${{ secrets.PROD_API_KEY }}
+      run: |
+        cloudstudio deploy --api-key $API_KEY --env prod
