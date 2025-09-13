@@ -1,0 +1,20 @@
+{
+  "path": "c:\\Users\\陆灿星\\CodeBuddy\\20250908151303",
+  "desc": "量化交易系统极简API服务",
+  "id": "36de2eac421a44a98eceeb49b6d35e96",
+  "data": {
+    "spaceKey": "36de2eac421a44a98eceeb49b6d35e96",
+    "connections": {
+      "webIDE": "https://36de2eac421a44a98eceeb49b6d35e96.codebuddy.cloudstudio.club",
+      "preview": "https://36de2eac421a44a98eceeb49b6d35e96--{port}.codebuddy.cloudstudio.club",
+      "api": "https://36de2eac421a44a98eceeb49b6d35e96--api.codebuddy.cloudstudio.club",
+      "pty": "https://36de2eac421a44a98eceeb49b6d35e96--pty.codebuddy.cloudstudio.club"
+    }
+  },
+  "config": {
+    "api": "https://36de2eac421a44a98eceeb49b6d35e96--api.codebuddy.cloudstudio.club",
+    "pty": "https://36de2eac421a44a98eceeb49b6d35e96--pty.codebuddy.cloudstudio.club",
+    "region": "ap-shanghai",
+    "spaceKey": "36de2eac421a44a98eceeb49b6d35e96"
+  }
+}

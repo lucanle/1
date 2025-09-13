@@ -1,0 +1,26 @@
+{
+  "project_name": "AI量化交易系统",
+  "python_version": "3.9",
+  "requirements": [
+    "torch==1.13.1+cpu",
+    "pandas==1.5.3",
+    "lightgbm==3.3.2",
+    "onnxruntime==1.13.1",
+    "dash==2.9.0",
+    "plotly==5.14.0",
+    "ccxt==3.0.0"
+  ],
+  "start_command": "python main.py --mode cloud",
+  "exclude_files": [
+    "local_settings.py",
+    "*.log",
+    "*.pth",
+    "*.onnx",
+    "*.bin"
+  ],
+  "model_config": {
+    "lightgbm_path": "models/price_model.txt",
+    "price_prediction_path": "models/price_model.onnx",
+    "sentiment_model_path": "models/sentiment_model.pth"
+  }
+}

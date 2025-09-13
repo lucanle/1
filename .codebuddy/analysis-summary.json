@@ -1,0 +1,1 @@
+{"title":"0成本自动化交易系统","features":["模拟交易模式","免费云部署","实时监控"],"tech":{"Backend":"Vercel Serverless + CloudStudio","Database":"Supabase","Web":{"arch":"react","component":"tdesign"}},"design":"混合云架构","plan":{"实现模拟交易模式":"done","配置Vercel部署":"done","设置Supabase数据库":"done","部署到CloudStudio":"done"}}

@@ -1,0 +1,27 @@
+# 创建并激活虚拟环境
+{
+  "api_keys": {
+    "binance": {
+      "api_key": "YOUR_API_KEY",
+      "api_secret": "YOUR_SECRET"
+    },
+    "economic_data": "YOUR_API_KEY"
+  },
+  "trading": {
+    "symbols": ["BTC/USDT", "ETH/USDT"],
+    "timeframe": "1h",
+    "initial_capital": 10000
+  },
+  "model_params": {
+    "device": "cuda",
+    "quantization": "int8",
+    "max_batch_size": 16
+  }
+}
+PS C:\ai-quant-system> python -m venv venv
+PS C:\ai-quant-system> venv\Scripts\activate
+(venv) PS C:\ai-quant-system> pip list
+Package    Version
+---------- -------
+pip        23.0.1
+setuptools 65.5.0

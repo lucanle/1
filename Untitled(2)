@@ -1,0 +1,7 @@
+# 检查Python版本
+python --version
+# 需要3.9.x版本
+
+# 检查CUDA状态
+nvidia-smi
+# 应显示RTX 2050和CUDA 11.6+

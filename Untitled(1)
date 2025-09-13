@@ -1,0 +1,19 @@
+{
+  "api_keys": {
+    "binance": {
+      "api_key": "YOUR_API_KEY",
+      "api_secret": "YOUR_SECRET"
+    },
+    "economic_data": "YOUR_API_KEY"
+  },
+  "trading": {
+    "symbols": ["BTC/USDT", "ETH/USDT"],
+    "timeframe": "1h",
+    "initial_capital": 10000
+  },
+  "model_params": {
+    "device": "cuda",
+    "quantization": "int8",
+    "max_batch_size": 16
+  }
+}

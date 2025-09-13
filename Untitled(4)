@@ -1,0 +1,9 @@
+# 测试合法请求（10个数据点）
+$body = @{data=@(1.1,2.2,3.3,4.4,5.5,6.6,7.7,8.8,9.9,10.0)} | ConvertTo-Json
+Invoke-RestMethod -Uri "http://507ee7c3fb6f4a71abf6977c7b3ee4cb.codebuddy.cloudstudio.run/predict" `
+-Method Post -Body $body -ContentType "application/json"
+
+# 预期成功响应应包含：
+# - status: "success"
+# - predictions: 预测结果数组
+# - model: 模型类名

@@ -1,0 +1,17 @@
+# 交易所配置
+exchange:
+  exchange_id: "okx"  
+  api_key: "your_api_key_here"
+  secret: "your_secret_here"
+  password: "your_trade_password"  # OKX特有参数
+  enableRateLimit: true
+
+# 风控配置
+risk:
+  max_position_percent: 0.1
+  max_loss_percent: 0.02
+  blacklist: []
+
+# Webhook配置
+webhook:
+  tv_secret: "your_tradingview_webhook_secret"

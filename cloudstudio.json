@@ -1,0 +1,21 @@
+{
+  "name": "quant-trading-system",
+  "version": "1.0.0",
+  "main": "deploy_package/main.py",
+  "scripts": {
+    "start": "uvicorn deploy_package.main:app --host 0.0.0.0 --port 8080",
+    "dashboard": "python deploy_package/dashboard.py"
+  },
+  "requirements": [
+    "numpy==1.19.5",
+    "fastapi==0.68.0",
+    "uvicorn==0.15.0",
+    "python-jose[cryptography]==3.3.0",
+    "dash==2.14.0",
+    "plotly==5.18.0"
+  ],
+  "cloudstudio": {
+    "ports": [8080, 8050],
+    "autoStart": true
+  }
+}
